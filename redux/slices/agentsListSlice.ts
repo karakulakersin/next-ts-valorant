@@ -8,7 +8,7 @@ const initialState = {
 }
 // First, create the thunk
 export const fetchAgents = createAsyncThunk('fetchAgents', async() => {
-    const response = await axios.get( process.env.NEXT_PUBLIC_API || '')
+    const response = await axios.get(process.env.NEXT_PUBLIC_API as string)
     return response.data
 })
 

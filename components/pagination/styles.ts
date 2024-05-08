@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+type StyledComponentProps = {
+    $active : boolean;
+}
 export const PaginationContainer = styled.ul`
     display: flex;
     justify-content: center;
@@ -10,7 +13,7 @@ export const PaginationContainer = styled.ul`
 export const PageLink = styled.div`
     cursor:pointer;
 `
-export const PageItem = styled.div`
+export const PageItem = styled.div<StyledComponentProps>`
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,12 @@
 import styled from "styled-components";
+type TPageCardProps = {
+    $background: string;
+}
+type TSkillImageProps = {
+    $color: string
+}
 // Ana bileşen divi
-export const PageCard = styled.div`
+export const PageCard = styled.div <TPageCardProps>`
     display: flex;
     flex-direction: column;
     width: 100%; 
@@ -100,7 +106,7 @@ export const SkillItem = styled.div`
 `;
 
 // Yetenek resmi
-export const SkillImage = styled.img`
+export const SkillImage = styled.img<TSkillImageProps>`
     min-width: 60px;
     background:${(props) => '#' + props.$color};  
     height: 60px;

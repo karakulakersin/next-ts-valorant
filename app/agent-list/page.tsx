@@ -2,6 +2,7 @@
 import {useRouter} from "next/navigation";
 import {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store"
 import { MainContainer } from "./styles";
 import Pagination from "@/components/pagination";
 import Info from "@/components/info";
@@ -9,7 +10,7 @@ import Card from "@/components/card";
 import { fetchAgents } from "@/redux/slices/agentsListSlice";
 export default function Detail() {
     const router = useRouter()
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const [currentPage, setCurrentPage] = useState(1);
     const data = useSelector((state:any) => state.agentsList)
     const agentData = data.agents.data
@@ -19,7 +20,7 @@ export default function Detail() {
             dispatch(fetchAgents())
     }, [])
 
-    const onPageChange = (page:number) => {
+    const onPageChange:(page:number) => void = (page) => {
         setCurrentPage(page);
     };
     const paginate = (items:any, pageNumber:number, pageSize:number) => {
@@ -33,7 +34,7 @@ export default function Detail() {
             {(agentData &&
             <div>
                 <MainContainer>
-                    {paginate(agentData,currentPage,process.env.NEXT_PUBLIC_PAGINATION_LIMIT).map((item: {
+                    {paginate(agentData,currentPage,Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT)).map((item: {
                         displayName: string,
                         killfeedPortrait: string,
                         uuid: string,
@@ -46,7 +47,7 @@ export default function Detail() {
                 <Pagination
                     data={agentData?.length}
                     currentPage={currentPage}
-                    pageSize={process.env.NEXT_PUBLIC_PAGINATION_LIMIT}
+                    pageSize={Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT)}
                     onPageChange={onPageChange}
                 />
             </div>

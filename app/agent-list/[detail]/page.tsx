@@ -1,23 +1,23 @@
 "use client"
-import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 import { PageCard, ImageContainer, CharacterName, Image,
     ContentContainer,SubCard,
     SubCardTitle,SubCardContent,SkillItem,SkillImage
     ,SkillName,SkillInfos,SkillDescription } from './styles';
 import {useDispatch, useSelector} from "react-redux";
+import { AppDispatch } from "@/redux/store"
+
 import { fetchAgentDetail } from "@/redux/slices/agentDetailSlice";
 import Info from "@/components/info";
 export default function Detail({
     params,
 }: {
     params:{
-        pokemonDetail: string }
+        detail: string }
 }) {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const detail = useSelector((state:any) => state.agentDetail)
     const data = detail.data.data
-    const router = useRouter()
 
     useEffect(() => {
         dispatch(fetchAgentDetail(params.detail))
@@ -30,7 +30,7 @@ export default function Detail({
                 <PageCard $background={data.background}>
                     <ImageContainer>
                         <CharacterName>{data.displayName}</CharacterName>
-                        <Image src={data.fullPortrait} alt="Resim"/>
+                        <Image src={data.fullPortrait}/>
                     </ImageContainer>
                     <ContentContainer>
                         <SubCard>

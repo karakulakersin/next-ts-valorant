@@ -8,3 +8,4 @@ export const store = configureStore({
         agentDetail: agentDetailSlice
     }
 })
+export type AppDispatch = typeof store.dispatch

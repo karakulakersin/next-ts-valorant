@@ -2,8 +2,8 @@ import { PaginationContainer, PageLink, PageItem } from "@/components/pagination
 type paginationProps= {
     data: number,
     currentPage: number,
-    pageSize: string,
-    onPageChange: () => {}
+    pageSize: number,
+    onPageChange: (page:number) => void
 }
 export default function Pagination({ data, currentPage, pageSize, onPageChange }: paginationProps) {
         const pagesCount = Math.ceil(data / pageSize);
@@ -16,7 +16,7 @@ export default function Pagination({ data, currentPage, pageSize, onPageChange }
             <PaginationContainer>
                 {pages.map((page) => (
                     <PageItem onClick={() => onPageChange(page)}
-                        key={page} $active={page === currentPage }>
+                        key={page} $active={page === currentPage}>
                         <PageLink >
                             {page}
                         </PageLink>

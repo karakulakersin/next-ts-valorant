@@ -8,7 +8,7 @@ const initialState = {
 }
 // First, create the thunk
 export const fetchAgents = createAsyncThunk('fetchAgents', async() => {
-    const response = await axios.get(process.env.NEXT_PUBLIC_API || '')
+    const response = await axios.get( process.env.NEXT_PUBLIC_API || '')
     return response.data
 })
 
@@ -28,7 +28,7 @@ const agentsListSlice = createSlice({
         })
         builder.addCase(fetchAgents.rejected,(state,action) => {
             state.loading = false;
-            state.error = 'hata'
+            state.error = 'Bir hata oluştu!'
         })
     }
 })

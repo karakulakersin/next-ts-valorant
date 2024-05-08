@@ -29,7 +29,7 @@ const agentDetailSlice = createSlice({
         })
         builder.addCase(fetchAgentDetail.rejected,(state,action) => {
             state.loading = false;
-            state.error = 'hata'
+            state.error = 'Bir hata oluştu!'
         })
     }
 })

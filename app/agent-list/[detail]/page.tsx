@@ -7,6 +7,7 @@ import { PageCard, ImageContainer, CharacterName, Image,
     ,SkillName,SkillInfos,SkillDescription } from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import { fetchAgentDetail } from "@/redux/slices/agentDetailSlice";
+import Error from "@/components/error";
 export default function Detail({
     params,
 }: {
@@ -24,6 +25,8 @@ export default function Detail({
     }, [])
     return (
         <div>
+            {detail.loading && <Error message='Loading...' />}
+            {detail.error && <Error message={detail.error}/>}
             {data &&
                 <PageCard $background={data.background}>
                     <ImageContainer>

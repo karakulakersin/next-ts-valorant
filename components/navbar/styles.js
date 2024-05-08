@@ -10,7 +10,5 @@ export const Nav = styled.nav`
 `;
 
 export const Logo = styled.img`
-  font-size: 1.5rem;
-  font-weight: bold;
   cursor: pointer;
 `;

@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const PageCard = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%; /* Tüm sayfayı kaplaması için */
-    min-height: calc(100vh - 132px); /* Tüm sayfa boyu kadar uzanması için */
+    width: 100%; 
+    min-height: calc(100vh - 132px); 
     background-color: #f2f2f2;
     padding: 20px;
-    background-image: url(${(props) => props.$background});  /* Arka plan görüntüsü ekle */
-    background-size: cover; /* Arka plan görüntüsünün boyutunu ayarla */
-    background-position: center; /* Arka plan görüntüsünün konumunu ayarla */
-    justify-content: center; /* Yatayda ortala */
-    align-items: center; /* Dikeyde ortala */
+    background-image: url(${(props) => props.$background});  
+    background-size: cover;
+    background-position: center; 
+    justify-content: center;
+    align-items: center; 
     box-sizing: border-box;
 
     @media (min-width: 768px) {
@@ -102,11 +102,18 @@ export const SkillItem = styled.div`
 // Yetenek resmi
 export const SkillImage = styled.img`
     min-width: 60px;
-    background:${(props) => '#' + props.$color};  /* Arka plan görüntüsü ekle */
+    background:${(props) => '#' + props.$color};  
     height: 60px;
     border-radius: 50%;
 `;
 
+// Yetenek bilgileri
+export const SkillInfos = styled.div`
+    display: flex;
+    margin-left: 1rem;
+    flex-direction: column;
+    align-items: start;
+`
 // Yetenek adı
 export const SkillName = styled.span`
     font-size: 18px;
@@ -114,12 +121,6 @@ export const SkillName = styled.span`
     color: #333;
     margin-bottom: 5px;
 `;
-export const SkillInfos = styled.div`
-    display: flex;
-    margin-left: 1rem;
-    flex-direction: column;
-    align-items: start;
-`
 // Yetenek açıklaması
 export const SkillDescription = styled.span`
   font-size: 14px;

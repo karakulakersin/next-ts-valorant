@@ -5,8 +5,6 @@ const initialState = {
     agents: [],
     loading: false,
     error: '',
-    limit:10,
-    page:1,
 }
 // First, create the thunk
 export const fetchAgents = createAsyncThunk('fetchAgents', async() => {

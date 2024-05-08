@@ -8,16 +8,17 @@ import { MainContainer } from "./styles";
 import Pagination from "@/components/pagination";
 import { fetchAgents } from "@/redux/slices/agentsListSlice";
 export default function Detail() {
-
+    const router = useRouter()
     const dispatch = useDispatch()
     const [currentPage, setCurrentPage] = useState(1);
-
     const data = useSelector((state:any) => state.agentsList)
+    const agentData = data.agents.data
+
     useEffect(() => {
         if (!agentData)
             dispatch(fetchAgents())
     }, [])
-    const router = useRouter()
+
     const onPageChange = (page:number) => {
         setCurrentPage(page);
     };
@@ -25,7 +26,6 @@ export default function Detail() {
         const startIndex = (pageNumber - 1) * pageSize;
         return items.slice(startIndex, startIndex + Number(pageSize));
     };
-    const agentData = data.agents.data
     return (
         <main>
             {(agentData &&

@@ -1,5 +1,4 @@
 "use client";
-import {useRouter} from "next/navigation";
 import {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store"
@@ -9,7 +8,6 @@ import Info from "@/components/info";
 import Card from "@/components/card";
 import { fetchAgents } from "@/redux/slices/agentsListSlice";
 export default function Detail() {
-    const router = useRouter()
     const dispatch = useDispatch<AppDispatch>()
     const [currentPage, setCurrentPage] = useState(1);
     const data = useSelector((state:any) => state.agentsList)

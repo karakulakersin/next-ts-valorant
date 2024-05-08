@@ -95,7 +95,7 @@ export const SubCardContent = styled.p`
 // Yetenek bileşeni
 export const SkillItem = styled.div`
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 20px;
 `;
 

@@ -1,12 +1,11 @@
 "use client";
 import {useRouter} from "next/navigation";
 import {useEffect, useState} from 'react';
-
-import Card from "@/components/card";
 import { useSelector, useDispatch } from "react-redux";
 import { MainContainer } from "./styles";
 import Pagination from "@/components/pagination";
-import Error from "@/components/error";
+import Info from "@/components/info";
+import Card from "@/components/card";
 import { fetchAgents } from "@/redux/slices/agentsListSlice";
 export default function Detail() {
     const router = useRouter()
@@ -29,25 +28,21 @@ export default function Detail() {
     };
     return (
         <main>
-            {data.loading && <Error message='Loading...' />}
-            {data.error && <Error message={data.error}/>}
+            {data.loading && <Info message='Loading...' />}
+            {data.error && <Info message={data.error}/>}
             {(agentData &&
             <div>
-
-                    <MainContainer>
-                        {paginate(agentData,currentPage,process.env.NEXT_PUBLIC_PAGINATION_LIMIT).map((item: {
-                            displayName: string,
-                            killfeedPortrait: string,
-                            uuid: string,
-                            fullPortrait: string,
-                            background:string,
-                        }, index: number) => (
-                            <Card item={item} key={index}/>
-                        ))}
-                    </MainContainer>
-
-
-
+                <MainContainer>
+                    {paginate(agentData,currentPage,process.env.NEXT_PUBLIC_PAGINATION_LIMIT).map((item: {
+                        displayName: string,
+                        killfeedPortrait: string,
+                        uuid: string,
+                        fullPortrait: string,
+                        background:string,
+                    }, index: number) => (
+                        <Card item={item} key={index}/>
+                    ))}
+                </MainContainer>
                 <Pagination
                     data={agentData?.length}
                     currentPage={currentPage}

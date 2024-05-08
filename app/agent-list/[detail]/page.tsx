@@ -7,14 +7,13 @@ import { PageCard, ImageContainer, CharacterName, Image,
     ,SkillName,SkillInfos,SkillDescription } from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import { fetchAgentDetail } from "@/redux/slices/agentDetailSlice";
-import Error from "@/components/error";
+import Info from "@/components/info";
 export default function Detail({
     params,
 }: {
     params:{
         pokemonDetail: string }
 }) {
-
     const dispatch = useDispatch()
     const detail = useSelector((state:any) => state.agentDetail)
     const data = detail.data.data
@@ -25,8 +24,8 @@ export default function Detail({
     }, [])
     return (
         <div>
-            {detail.loading && <Error message='Loading...' />}
-            {detail.error && <Error message={detail.error}/>}
+            {detail.loading && <Info message='Loading...' />}
+            {detail.error && <Info message={detail.error}/>}
             {data &&
                 <PageCard $background={data.background}>
                     <ImageContainer>

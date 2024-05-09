@@ -1,8 +1,6 @@
 import styled from "styled-components";
+import { TStyledComponentProps } from "@/types/components/paginationTypes";
 
-type StyledComponentProps = {
-    $active : boolean;
-}
 export const PaginationContainer = styled.ul`
     display: flex;
     justify-content: center;
@@ -13,7 +11,7 @@ export const PaginationContainer = styled.ul`
 export const PageLink = styled.div`
     cursor:pointer;
 `
-export const PageItem = styled.div<StyledComponentProps>`
+export const PageItem = styled.div<TStyledComponentProps>`
     display: flex;
     justify-content: center;
     align-items: center;

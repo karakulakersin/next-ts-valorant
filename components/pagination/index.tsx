@@ -1,11 +1,7 @@
 import { PaginationContainer, PageLink, PageItem } from "@/components/pagination/styles";
-type paginationProps= {
-    data: number,
-    currentPage: number,
-    pageSize: number,
-    onPageChange: (page:number) => void
-}
-export default function Pagination({ data, currentPage, pageSize, onPageChange }: paginationProps) {
+import { TPaginationProps } from "@/types/components/paginationTypes";
+
+export default function Pagination({ data, currentPage, pageSize, onPageChange }: TPaginationProps) {
         const pagesCount = Math.ceil(data / pageSize);
         if (pagesCount === 1)
             return null;

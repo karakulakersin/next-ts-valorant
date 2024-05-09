@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
 export const Image = styled.img`
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: .5rem;
 `;
 export const Title = styled.h1`
     font-size: 1.5em;
@@ -23,7 +23,7 @@ export const WrapperItems = styled.section`
 `;
 export const WrapperItem = styled.section`
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: .6rem;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     background-size: cover;
     display: flex;

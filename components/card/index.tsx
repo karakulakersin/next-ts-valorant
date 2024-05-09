@@ -1,17 +1,9 @@
 import Image from 'next/image';
 import { Wrapper, WrapperItem, WrapperItems, Title} from "@/components/card/styles";
 import {useRouter} from "next/navigation";
+import { TCardProps } from "@/types/components/cardTypes";
 
-type GreetProps = {
-    item:{
-        displayName: string,
-        killfeedPortrait:string,
-        fullPortrait:string,
-        uuid:string,
-    },
-
-}
-export default function Card(props:GreetProps) {
+export default function Card(props:TCardProps) {
     const router = useRouter()
 
     return (
@@ -19,7 +11,7 @@ export default function Card(props:GreetProps) {
             {props.item.fullPortrait &&
                 <Wrapper>
                     <WrapperItems>
-                        <WrapperItem onClick={() => router.push('/agent-list/' + props.item.uuid)}>
+                        <WrapperItem onClick={() => router.push('/' + props.item.uuid)}>
                             <Image src={props.item.fullPortrait} width={350} height={350} alt='ValorantImages'/>
                             <Title>
                                 {props.item.displayName}

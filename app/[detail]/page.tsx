@@ -26,7 +26,7 @@ export default function Detail({
         <div>
             {detail.loading && <Info message='Loading...' />}
             {detail.error && <Info message={detail.error}/>}
-            {data &&
+            {data && !detail.loading &&
                 <PageCard $background={data.background}>
                     <ImageContainer>
                         <CharacterName>{data.displayName}</CharacterName>

@@ -1,17 +1,19 @@
 "use client"
 import React from 'react';
-import { Nav, Logo } from "@/components/navbar/styles";
+import { Nav, Button } from "@/components/navbar/styles";
 import {useRouter} from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar () {
     const router = useRouter()
     return (
         <Nav>
-            <Logo src="/images/valorant.png"
-                  alt="Logo"
-                  width={200}
-                  height={100}
-                  onClick={() => router.push('/agent-list')}/>
+            <Image src="/images/Valorant-Emblem.png"
+                   alt="Logo"
+                   width={100}
+                   height={50}
+                   onClick={() => router.push('/')}/>
+            <Button onClick={() => router.push('/')}>Ana Sayfa</Button>
         </Nav>
     );
 };

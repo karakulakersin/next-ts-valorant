@@ -1,10 +1,6 @@
 import styled from "styled-components";
-type TPageCardProps = {
-    $background: string;
-}
-type TSkillImageProps = {
-    $color: string
-}
+import { TPageCardProps, TSkillImageProps } from "@/types/pages/agentDetailTypes";
+
 // Ana bileşen divi
 export const PageCard = styled.div <TPageCardProps>`
     display: flex;
@@ -47,7 +43,7 @@ export const CharacterName = styled.h1`
 export const Image= styled.img`
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: .5rem;
 
   @media (min-width: 768px) {
     width: auto;
@@ -79,7 +75,7 @@ export const CardContent = styled.p`
 // Kart bileşeni
 export const SubCard = styled.div`
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: .6rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   padding: 15px;
   margin-top: 20px;
